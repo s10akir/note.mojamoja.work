@@ -29,11 +29,11 @@ export default {
   components: {
     HelloWorld
   },
-  data: () => ({
-    db: {}
-  }),
   beforeCreate: function() {
     this.$schemaBuilder.connect().then(db => (this.db = db));
-  }
+  },
+  data: () => ({
+    db: {}
+  })
 };
 </script>
