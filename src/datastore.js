@@ -12,4 +12,4 @@ schemaBuilder
   .addColumn("updated_at", lf.Type.DATE_TIME)
   .addPrimaryKey(["id"], true);
 
-export default schemaBuilder;
+export default schemaBuilder.connect;

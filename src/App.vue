@@ -23,12 +23,6 @@
 
 <script>
 export default {
-  name: "App",
-  beforeCreate: function() {
-    this.$schemaBuilder.connect().then(db => (this.db = db));
-  },
-  data: () => ({
-    db: {}
-  })
+  name: "App"
 };
 </script>
