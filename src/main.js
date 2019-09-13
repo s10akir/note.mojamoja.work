@@ -2,10 +2,10 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
-import db from "./datastore.js";
+import schemaBuilder from "./datastore.js";
 
 Vue.config.productionTip = false;
-Vue.prototype.$db = db;
+schemaBuilder.connect().then(db => (Vue.prototype.$db = db));
 
 new Vue({
   router,
