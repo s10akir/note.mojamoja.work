@@ -51,7 +51,21 @@ export default {
       collapseIdentical: false,
       highlightDifferences: true
     }
-  })
+  }),
+  watch: {
+    // TODO: 毎更新保存を実行するとCPU負荷が重すぎるので要検討
+    "note.content": function(value) {
+      console.log(value);
+      const db = this.$db;
+      const Note = db.getSchema().table("Note");
+
+      db.update(Note)
+        .set(Note.content, value)
+        .set(Note.updated_at, new Date())
+        .where(Note.id.eq(this.note.id))
+        .exec();
+    }
+  }
 };
 </script>
 
