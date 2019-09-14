@@ -6,11 +6,7 @@
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
+      <v-btn text to="/note/1/edit">
         <span class="mr-2">Latest Release</span>
       </v-btn>
     </v-app-bar>
