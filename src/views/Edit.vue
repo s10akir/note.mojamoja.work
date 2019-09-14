@@ -31,7 +31,7 @@ export default {
     await db
       .select()
       .from(Note)
-      .where(Note.id.eq(1))
+      .where(Note.id.eq(this.$route.params.id))
       .exec()
       .then(result => (this.note = result[0]));
   },
