@@ -5,7 +5,7 @@ import vuetify from "./plugins/vuetify";
 import schemaBuilder from "./datastore.js";
 
 Vue.config.productionTip = false;
-Vue.prototype.$schemaBuilder = schemaBuilder;
+schemaBuilder.connect().then(db => (Vue.prototype.$db = db));
 
 new Vue({
   router,
