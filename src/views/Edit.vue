@@ -19,6 +19,8 @@ import "codemirror/theme/monokai.css";
 
 import Preview from "@/components/MarkdownPreview";
 
+let saveTimer;
+
 export default {
   components: {
     codemirror,
@@ -50,20 +52,28 @@ export default {
       autoFocus: true,
       collapseIdentical: false,
       highlightDifferences: true
-    }
+    },
+    // 更新されてから何秒更新がなかった場合に保存するかをミリ秒で指定する
+    autoSaveInterval: 2000
   }),
-  watch: {
-    // TODO: 毎更新保存を実行するとCPU負荷が重すぎるので要検討
-    "note.content": function(value) {
-      console.log(value);
+  methods: {
+    saveNote: function(content) {
+      console.log(content);
       const db = this.$db;
       const Note = db.getSchema().table("Note");
 
       db.update(Note)
-        .set(Note.content, value)
+        .set(Note.content, content)
         .set(Note.updated_at, new Date())
         .where(Note.id.eq(this.note.id))
         .exec();
+    }
+  },
+  watch: {
+    "note.content": function(value) {
+      // autoSaveIntervalで指定された秒数更新がなかった場合にノートを保存する
+      clearInterval(saveTimer);
+      saveTimer = setTimeout(this.saveNote, this.autoSaveInterval, value);
     }
   }
 };
