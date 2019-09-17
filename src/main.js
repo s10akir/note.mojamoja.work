@@ -7,8 +7,10 @@ import schemaBuilder from "./datastore.js";
 Vue.config.productionTip = false;
 schemaBuilder.connect().then(db => (Vue.prototype.$db = db));
 
+Vue.use(vuetify);
+
 new Vue({
-  router,
   vuetify,
+  router,
   render: h => h(App)
 }).$mount("#app");
