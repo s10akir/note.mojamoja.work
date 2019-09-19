@@ -5,10 +5,12 @@ import vuetify from "./plugins/vuetify";
 import schemaBuilder from "./datastore.js";
 
 Vue.config.productionTip = false;
-Vue.prototype.$schemaBuilder = schemaBuilder;
+schemaBuilder.connect().then(db => (Vue.prototype.$db = db));
+
+Vue.use(vuetify);
 
 new Vue({
-  router,
   vuetify,
+  router,
   render: h => h(App)
 }).$mount("#app");
