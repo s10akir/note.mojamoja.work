@@ -1,11 +1,14 @@
 <template>
   <div>
-    <p>this is NoteMenu components</p>
+    <v-btn :to="{ name: 'edit', params: { id: activeNote } }">edit</v-btn>
   </div>
 </template>
 
 <script>
 export default {
-  name: "NoteMenu"
+  name: "NoteMenu",
+  props: {
+    activeNote: Number
+  }
 };
 </script>
