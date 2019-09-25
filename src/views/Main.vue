@@ -1,15 +1,23 @@
 <template>
-  <div class="d-flex flex-row mb-12">
-    <Sidebar v-bind:notes="notes" @selectNote="selectNote" />
-    <div class="float-left flex-column">
-      <MarkdownPreview
-        v-if="notes[searchIndex(activeNote)] != undefined"
-        :title="notes[searchIndex(activeNote)].title"
-        :content="notes[searchIndex(activeNote)].content"
-      />
-      <NoteMenu v-bind:activeNote="activeNote" :class="`justify-end`" />
-    </div>
-  </div>
+  <v-container fluid fill-height pa-0>
+    <v-row no-gutters class="fill-height">
+      <v-col md="2">
+        <Sidebar v-bind:notes="notes" @selectNote="selectNote" />
+      </v-col>
+      <v-col md="10" class="d-flex flex-column" fill-height>
+        <v-col class="ma-0">
+          <MarkdownPreview
+            v-if="notes[searchIndex(activeNote)] != undefined"
+            :title="notes[searchIndex(activeNote)].title"
+            :content="notes[searchIndex(activeNote)].content"
+          />
+        </v-col>
+        <v-row class="ma-0">
+          <NoteMenu v-bind:activeNote="activeNote" />
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -37,6 +45,7 @@ export default {
   },
   data: () => ({
     notes: [],
+    // 選択中のnoteのid
     activeNote: 0
   }),
   methods: {
@@ -44,6 +53,7 @@ export default {
       this.activeNote = id;
     },
     searchIndex(id) {
+      // noteのidからnotesの要素番号を取得する
       return this.notes.findIndex(v => v.id == id);
     }
   }
