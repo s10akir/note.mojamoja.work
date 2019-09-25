@@ -7,6 +7,15 @@
 
 <script>
 import marked from "marked";
+import hljs from "highlightjs";
+import "highlight.js/styles/github.css";
+
+marked.setOptions({
+  langPrefix: "",
+  highlight: function(code, lang) {
+    return hljs.highlightAuto(code, [lang]).value;
+  }
+});
 
 export default {
   name: "MarkdownPreview",
