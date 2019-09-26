@@ -2,7 +2,7 @@
   <v-container fluid fill-height pa-0>
     <v-row no-gutters class="fill-height">
       <v-col md="2">
-        <Sidebar v-bind:notes="notes" @selectNote="selectNote" />
+        <MainMenu :notes="notes" @selectNote="selectNote" />
       </v-col>
       <v-col md="10" class="d-flex flex-column" fill-height>
         <v-col class="ma-0">
@@ -13,7 +13,7 @@
           />
         </v-col>
         <v-row class="ma-0">
-          <NoteMenu v-bind:activeNote="activeNote" />
+          <NoteMenu :activeNote="activeNote" />
         </v-row>
       </v-col>
     </v-row>
@@ -21,13 +21,13 @@
 </template>
 
 <script>
-import Sidebar from "@/components/Sidebar.vue";
+import MainMenu from "@/components/MainMenu.vue";
 import NoteMenu from "@/components/NoteMenu.vue";
 import MarkdownPreview from "@/components/MarkdownPreview.vue";
 
 export default {
   components: {
-    Sidebar,
+    MainMenu,
     NoteMenu,
     MarkdownPreview
   },
@@ -48,10 +48,10 @@ export default {
     activeNote: 0
   }),
   methods: {
-    selectNote(id) {
+    selectNote: function(id) {
       this.activeNote = id;
     },
-    searchIndex(id) {
+    searchIndex: function(id) {
       // noteのidからnotesの要素番号を取得する
       return this.notes.findIndex(v => v.id == id);
     }

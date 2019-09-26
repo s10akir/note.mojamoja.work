@@ -4,10 +4,10 @@
     <v-list-item-group>
       <v-list-item
         v-for="note in this.notes"
-        v-bind:key="note.id"
-        v-on:click="selectNote(note.id)"
+        :key="note.id"
+        @click="selectNote(note.id)"
       >
-        <NoteListItem :row="note" />
+        <NoteListItem :note="note" />
       </v-list-item>
     </v-list-item-group>
   </div>

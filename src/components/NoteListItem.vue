@@ -1,9 +1,9 @@
 <template>
-  <p>{{ this.row.title }}</p>
+  <p>{{ this.note.title }}</p>
 </template>
 
 <script>
 export default {
-  props: ["row"]
+  props: ["note"]
 };
 </script>
