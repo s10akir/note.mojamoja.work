@@ -6,7 +6,6 @@
 
 <script>
 export default {
-  name: "NoteMenu",
   props: {
     activeNote: Number
   }

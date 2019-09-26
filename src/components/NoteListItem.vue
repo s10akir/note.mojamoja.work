@@ -4,7 +4,6 @@
 
 <script>
 export default {
-  name: "noteItem",
   props: ["row"]
 };
 </script>

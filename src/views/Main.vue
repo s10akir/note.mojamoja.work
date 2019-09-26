@@ -21,12 +21,11 @@
 </template>
 
 <script>
-import Sidebar from "../components/Sidebar.vue";
-import NoteMenu from "../components/NoteMenu.vue";
-import MarkdownPreview from "../components/MarkdownPreview.vue";
+import Sidebar from "@/components/Sidebar.vue";
+import NoteMenu from "@/components/NoteMenu.vue";
+import MarkdownPreview from "@/components/MarkdownPreview.vue";
 
 export default {
-  name: "Main",
   components: {
     Sidebar,
     NoteMenu,
