@@ -4,13 +4,14 @@ import router from "./router";
 import vuetify from "./plugins/vuetify";
 import schemaBuilder from "./datastore.js";
 
-Vue.config.productionTip = false;
-schemaBuilder.connect().then(db => (Vue.prototype.$db = db));
+schemaBuilder.connect().then(db => {
+  Vue.prototype.$db = db;
+  Vue.config.productionTip = false;
+  Vue.use(vuetify);
 
-Vue.use(vuetify);
-
-new Vue({
-  vuetify,
-  router,
-  render: h => h(App)
-}).$mount("#app");
+  new Vue({
+    vuetify,
+    router,
+    render: h => h(App)
+  }).$mount("#app");
+});
