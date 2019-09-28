@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="main">
     <v-content>
       <router-view />
     </v-content>
@@ -16,4 +16,7 @@ export default {
 // これを書いておかないと常にスクロールバーが出てしまう(Vuetify起因？）
 html
   overflow-y: visible !important
+
+#main, main
+  height: 100vh
 </style>
