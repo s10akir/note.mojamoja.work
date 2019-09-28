@@ -7,7 +7,7 @@
       <v-col
         xs="10"
         class="d-flex flex-column"
-        style="height: calc(101% - 64px)"
+        style="height: calc(100% - 64px)"
       >
         <MarkdownPreview
           v-if="notes[searchIndex(activeNote)] != undefined"
