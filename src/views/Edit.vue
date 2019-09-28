@@ -8,6 +8,9 @@
         <Preview :title="note.title" :content="note.content" />
       </v-col>
     </v-row>
+    <v-toolbar bottom absolute flat width="100%">
+      <v-btn @click="saveNote(note.content)" to="/">BACK</v-btn>
+    </v-toolbar>
   </v-container>
 </template>
 
@@ -80,7 +83,10 @@ export default {
 </script>
 
 <style lang="sass">
-#edit, #editor, #preview, .row, .vue-codemirror
+#edit
+  height: calc(100% - 64px)
+
+#editor, #preview, .row, .vue-codemirror
   height: 100%
 
 .row
