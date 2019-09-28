@@ -6,6 +6,7 @@
         v-for="note in this.notes"
         :key="note.id"
         @click="selectNote(note.id)"
+        style="border-bottom: ridge"
       >
         <NoteListItem :note="note" />
       </v-list-item>
