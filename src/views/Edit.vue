@@ -1,10 +1,10 @@
 <template>
-  <v-container id="edit" fluid fill-height pa-0>
+  <v-container id="edit" fluid pa-0>
     <v-row no-gutters>
-      <v-col xs="6">
+      <v-col xs="6" id="editor">
         <codemirror v-model="note.content" :options="cmOption" />
       </v-col>
-      <v-col xs="6" class="ma-3">
+      <v-col xs="6" class="pa-3" id="preview">
         <Preview :title="note.title" :content="note.content" />
       </v-col>
     </v-row>
@@ -79,16 +79,12 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.row {
-  height: 100%;
+<style lang="sass">
+#edit, #editor, #preview, .row, .vue-codemirror
+  height: 100%
 
-  .vue-codemirror {
-    height: 100%;
-  }
-
-  .CodeMirror {
-    height: 100%;
-  }
-}
+.row
+  .CodeMirror, #preview
+    height: 100%
+    overflow-y: auto
 </style>
