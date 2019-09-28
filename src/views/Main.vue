@@ -10,10 +10,10 @@
         style="height: calc(100% - 64px)"
       >
         <MarkdownPreview
+          class="preview px-2"
           v-if="notes[searchIndex(activeNote)] != undefined"
           :title="notes[searchIndex(activeNote)].title"
           :content="notes[searchIndex(activeNote)].content"
-          style="overflow-y: auto"
         />
         <v-toolbar
           class="ma-0"
@@ -70,3 +70,8 @@ export default {
   }
 };
 </script>
+
+<style lang="sass" scoped>
+.preview
+  overflow-y: auto
+</style>
