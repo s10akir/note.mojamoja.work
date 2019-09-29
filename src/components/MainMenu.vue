@@ -3,7 +3,7 @@
     <v-btn block depressed tile color="secondary" to="/note/new">
       New Note
     </v-btn>
-    <v-list-item-group>
+    <v-list-item-group style="max-height: calc(100vh - 36px); overflow:auto">
       <v-list-item
         v-for="note in this.notes"
         :key="note.id"
