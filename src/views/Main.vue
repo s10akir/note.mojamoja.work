@@ -13,7 +13,7 @@
           />
         </v-col>
         <v-row class="ma-0">
-          <NoteMenu :activeNote="activeNote" />
+          <NoteMenu :activeNote="activeNote" @deleteNote="deleteNote" />
         </v-row>
       </v-col>
     </v-row>
@@ -31,16 +31,8 @@ export default {
     NoteMenu,
     MarkdownPreview
   },
-  created: async function() {
-    const db = this.$db;
-    const Note = db.getSchema().table("Note");
-
-    db.select()
-      .from(Note)
-      .exec()
-      .then(res => {
-        this.notes = res;
-      });
+  created: function() {
+    this.loadNote();
   },
   data: () => ({
     notes: [],
@@ -48,12 +40,38 @@ export default {
     activeNote: 0
   }),
   methods: {
+    loadNote: async function() {
+      const db = this.$db;
+      const Note = db.getSchema().table("Note");
+
+      db.select()
+        .from(Note)
+        .exec()
+        .then(res => {
+          this.notes = res;
+        });
+    },
     selectNote: function(id) {
       this.activeNote = id;
     },
     searchIndex: function(id) {
       // noteのidからnotesの要素番号を取得する
       return this.notes.findIndex(v => v.id == id);
+    },
+    deleteNote: async function(id) {
+      if (window.confirm("delete selected note?")) {
+        const db = this.$db;
+        const Note = db.getSchema().table("Note");
+
+        db.delete()
+          .from(Note)
+          .where(Note.id.eq(id))
+          .exec()
+          .then(() => {
+            this.selectNote(0);
+            this.loadNote();
+          });
+      }
     }
   }
 };
