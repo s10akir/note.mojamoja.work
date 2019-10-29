@@ -32,7 +32,7 @@ export default {
     MarkdownPreview
   },
   created: function() {
-    this.loadNote();
+    this.loadNotes();
   },
   data: () => ({
     notes: [],
@@ -40,7 +40,7 @@ export default {
     activeNote: 0
   }),
   methods: {
-    loadNote: async function() {
+    loadNotes: async function() {
       const db = this.$db;
       const Note = db.getSchema().table("Note");
 
@@ -69,7 +69,7 @@ export default {
           .exec()
           .then(() => {
             this.selectNote(0);
-            this.loadNote();
+            this.loadNotes();
           });
       }
     }
