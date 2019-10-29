@@ -59,7 +59,7 @@ export default {
       return this.notes.findIndex(v => v.id == id);
     },
     deleteNote: async function(id) {
-      if (window.confirm("delete selected note?")) {
+      if (window.confirm("Do you want to delete the selected note?")) {
         const db = this.$db;
         const Note = db.getSchema().table("Note");
 
