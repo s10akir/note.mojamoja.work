@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-btn :to="{ name: 'edit', params: { id: activeNote } }">edit</v-btn>
-    <v-btn @click="deleteNote()">delete</v-btn>
+    <v-btn @click="deleteNote">delete</v-btn>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
     activeNote: Number
   },
   methods: {
-    deleteNote: function() {
+    deleteNote() {
       this.$emit("deleteNote", this.activeNote);
     }
   }
