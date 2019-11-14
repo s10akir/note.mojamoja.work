@@ -31,7 +31,7 @@ export default {
     NoteMenu,
     MarkdownPreview
   },
-  created: function() {
+  created() {
     this.loadNotes();
   },
   data: () => ({
@@ -40,7 +40,7 @@ export default {
     activeNote: 0
   }),
   methods: {
-    loadNotes: async function() {
+    async loadNotes() {
       const db = this.$db;
       const Note = db.getSchema().table("Note");
 
@@ -51,15 +51,19 @@ export default {
           this.notes = res;
         });
     },
-    selectNote: function(id) {
+    selectNote(id) {
       this.activeNote = id;
     },
-    searchIndex: function(id) {
+    searchIndex(id) {
       // noteのidからnotesの要素番号を取得する
       return this.notes.findIndex(v => v.id == id);
     },
-    deleteNote: async function(id) {
-      if (window.confirm("Do you want to delete the selected note?")) {
+    async deleteNote(id) {
+      const isConfirm = window.confirm(
+        "Do you want to delete the selected note?"
+      );
+
+      if (isConfirm) {
         const db = this.$db;
         const Note = db.getSchema().table("Note");
 
