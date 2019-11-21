@@ -1,11 +1,14 @@
 <template>
   <div>
-    <v-btn to="/note/new">New Note</v-btn>
-    <v-list-item-group>
+    <v-btn block depressed tile color="secondary" to="/note/new">
+      New Note
+    </v-btn>
+    <v-list-item-group style="max-height: calc(100vh - 36px); overflow:auto">
       <v-list-item
         v-for="note in this.notes"
         :key="note.id"
         @click="selectNote(note.id)"
+        style="border-bottom: ridge"
       >
         <NoteListItem :note="note" />
       </v-list-item>

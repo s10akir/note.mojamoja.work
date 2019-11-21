@@ -9,11 +9,12 @@ export default {
     const db = this.$db;
     const Note = db.getSchema().table("Note");
 
+    const now = new Date();
     const row = Note.createRow({
-      title: "",
+      title: String(now.toLocaleString("ja-JP", { timeXone: "JSC" })),
       content: "",
-      created_at: new Date(),
-      updated_at: new Date()
+      created_at: now,
+      updated_at: now
     });
 
     db.insert()
