@@ -4,7 +4,7 @@ import router from "./router";
 import schemaBuilder from "./datastore.js";
 
 import BootstrapVue from "bootstrap-vue";
-import "bootstrap/dist/css/bootstrap.css";
+import "bootswatch/dist/lux/bootstrap.min.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 schemaBuilder.connect().then(db => {
