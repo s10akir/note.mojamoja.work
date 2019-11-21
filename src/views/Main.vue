@@ -1,7 +1,7 @@
 <template>
   <v-container fluid fill-height pa-0>
     <v-row no-gutters class="fill-height">
-      <v-col md="2" style="height: 100%">
+      <v-col id="menu-bar" md="2" style="height: 100%">
         <MainMenu :notes="notes" @selectNote="selectNote" />
       </v-col>
       <v-col
@@ -94,6 +94,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+#menu-bar
+  border-right: #ccc 1px solid
+
 .preview
   overflow-y: auto
 </style>
