@@ -1,7 +1,9 @@
 <template>
   <div>
-    <v-btn :to="{ name: 'edit', params: { id: activeNote } }">edit</v-btn>
-    <v-btn @click="deleteNote">delete</v-btn>
+    <router-link :to="{ name: 'edit', params: { id: activeNote } }"
+      ><button>edit</button></router-link
+    >
+    <button @click="deleteNote">delete</button>
   </div>
 </template>
 

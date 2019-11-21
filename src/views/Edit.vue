@@ -1,17 +1,19 @@
 <template>
-  <v-container id="edit" fluid pa-0>
-    <v-row no-gutters>
-      <v-col xs="6" id="editor">
+  <div id="edit">
+    <div>
+      <div>
         <codemirror v-model="note.content" :options="cmOption" />
-      </v-col>
-      <v-col xs="6" class="pa-3" id="preview">
+      </div>
+      <div>
         <Preview :title="note.title" :content="note.content" />
-      </v-col>
-    </v-row>
-    <v-toolbar bottom absolute flat width="100%">
-      <v-btn @click="saveNote(note.content)" to="/">BACK</v-btn>
-    </v-toolbar>
-  </v-container>
+      </div>
+      <div>
+        <router-link to="/"
+          ><button @click="saveNote(note.content)">BACK</button></router-link
+        >
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

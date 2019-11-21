@@ -1,35 +1,22 @@
 <template>
-  <v-container fluid fill-height pa-0>
-    <v-row no-gutters class="fill-height">
-      <v-col id="menu-bar" md="2" style="height: 100%">
+  <div>
+    <div>
+      <div id="menu-bar" style="height: 100%">
         <MainMenu :notes="notes" @selectNote="selectNote" />
-      </v-col>
-      <v-col
-        xs="10"
-        class="d-flex flex-column"
-        style="height: calc(100% - 64px)"
-      >
+      </div>
+      <div>
         <MarkdownPreview
           class="preview px-2"
           v-if="notes[searchIndex(activeNote)] != undefined"
           :title="notes[searchIndex(activeNote)].title"
           :content="notes[searchIndex(activeNote)].content"
         />
-        <v-toolbar
-          class="ma-0"
-          :absolute="true"
-          :bottom="true"
-          :flat="true"
-          :dark="true"
-          width="100%"
-          height="64px"
-          max-height="64px"
-        >
+        <div>
           <NoteMenu :activeNote="activeNote" @deleteNote="deleteNote" />
-        </v-toolbar>
-      </v-col>
-    </v-row>
-  </v-container>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

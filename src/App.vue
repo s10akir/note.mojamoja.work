@@ -1,9 +1,9 @@
 <template>
-  <v-app id="main">
-    <v-content>
+  <div id="main">
+    <div>
       <router-view />
-    </v-content>
-  </v-app>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -13,10 +13,6 @@ export default {
 </script>
 
 <style lang="sass">
-// これを書いておかないと常にスクロールバーが出てしまう(Vuetify起因？）
-html
-  overflow-y: visible !important
-
 #main, main
   height: 100vh
 </style>
