@@ -8,9 +8,12 @@
         v-for="note in this.notes"
         :key="note.id"
         @click="selectNote(note.id)"
-        style="border-bottom: ridge"
+        class="list-group"
       >
-        <NoteListItem :note="note" />
+        <NoteListItem
+          :note="note"
+          class="list-group-item list-group-item-action"
+        />
       </div>
     </div>
   </div>
@@ -31,3 +34,8 @@ export default {
   }
 };
 </script>
+
+<style lang="sass" scoped>
+.ma-0
+  margin: 0
+</style>
