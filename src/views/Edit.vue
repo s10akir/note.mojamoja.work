@@ -4,8 +4,8 @@
       <div id="editor" class="col-sm pa-0">
         <codemirror v-model="note.content" :options="cmOption" />
       </div>
-      <div id="preview" class="col-sm pa-0 mx-10">
-        <Preview :title="note.title" :content="note.content" />
+      <div id="preview" class="col-sm pa-0">
+        <Preview :title="note.title" :content="note.content" class="mx-10" />
       </div>
     </div>
     <div class="row">
