@@ -1,7 +1,7 @@
 <template>
   <div class="preview">
     <h1 id="title">{{ title }}</h1>
-    <p v-html="render(content)" />
+    <p v-html="render(content)" class="markdown-body" />
   </div>
 </template>
 
@@ -9,6 +9,7 @@
 import marked from "marked";
 import hljs from "highlightjs";
 import "highlight.js/styles/github.css";
+import "github-markdown-css/github-markdown.css";
 
 marked.setOptions({
   langPrefix: "",
