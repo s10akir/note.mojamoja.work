@@ -1,8 +1,6 @@
 <template>
   <div id="main">
-    <div>
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 
@@ -13,6 +11,6 @@ export default {
 </script>
 
 <style lang="sass">
-#main, main
-  height: 100vh
+html, body, #main
+  height: 100%
 </style>

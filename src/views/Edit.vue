@@ -1,17 +1,19 @@
 <template>
-  <div id="edit">
-    <div>
-      <div>
+  <div id="edit" class="container-fluid pa-0">
+    <div class="row edit-main">
+      <div id="editor" class="col-sm pa-0">
         <codemirror v-model="note.content" :options="cmOption" />
       </div>
-      <div>
-        <Preview :title="note.title" :content="note.content" />
+      <div id="preview" class="col-sm pa-0">
+        <Preview :title="note.title" :content="note.content" class="mx-10" />
       </div>
-      <div>
-        <router-link to="/"
-          ><button @click="saveNote(note.content)">BACK</button></router-link
-        >
-      </div>
+    </div>
+    <div class="row">
+      <router-link to="/"
+        ><button @click="saveNote(note.content)" class="btn btn-primary">
+          BACK
+        </button></router-link
+      >
     </div>
   </div>
 </template>
@@ -85,14 +87,26 @@ export default {
 </script>
 
 <style lang="sass">
-#edit
-  height: calc(100% - 64px)
+.row
+  margin: 0
 
-#editor, #preview, .row, .vue-codemirror
+#edit
   height: 100%
 
-.row
-  .CodeMirror, #preview
-    height: 100%
-    overflow-y: auto
+.edit-main
+  height: calc(100% - 48px)
+
+.vue-codemirror, .CodeMirror
+  height: 100%
+
+#preview, #editor
+  height: 100%
+  overflow-y: auto
+
+.pa-0
+  padding: 0
+
+.mx-10
+  margin-left: 10px
+  margin-right: 10px
 </style>
