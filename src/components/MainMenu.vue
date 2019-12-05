@@ -4,16 +4,17 @@
       <button>New Note</button>
     </router-link>
     <div style="max-height: calc(100vh - 36px); overflow:auto">
-      <div
-        v-for="note in this.notes"
-        :key="note.id"
-        @click="selectNote(note.id)"
-        class="list-group"
-      >
-        <NoteListItem
-          :note="note"
-          class="list-group-item list-group-item-action"
-        />
+      <div class="list-group">
+        <div
+          v-for="note in this.notes"
+          :key="note.id"
+          @click="selectNote(note.id)"
+        >
+          <NoteListItem
+            :note="note"
+            class="list-group-item list-group-item-action"
+          />
+        </div>
       </div>
     </div>
   </div>
