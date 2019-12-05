@@ -2,7 +2,11 @@
   <div>
     <div>
       <div id="menu-bar" style="height: 100%">
-        <MainMenu :notes="notes" @selectNote="selectNote" />
+        <MainMenu
+          :notes="notes"
+          :activeNote="activeNote"
+          @selectNote="selectNote"
+        />
       </div>
       <div>
         <MarkdownPreview

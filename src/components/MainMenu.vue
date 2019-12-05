@@ -13,6 +13,7 @@
           <NoteListItem
             :note="note"
             class="list-group-item list-group-item-action"
+            :class="{ active: isActive(note.id) }"
           />
         </div>
       </div>
@@ -24,13 +25,16 @@
 import NoteListItem from "@/components/NoteListItem.vue";
 
 export default {
-  props: { notes: Array },
+  props: { notes: Array, activeNote: Number },
   components: {
     NoteListItem
   },
   methods: {
     selectNote: function(id) {
       this.$emit("selectNote", id);
+    },
+    isActive(id) {
+      return this.activeNote === id;
     }
   }
 };
