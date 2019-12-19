@@ -1,7 +1,9 @@
 <template>
   <div>
     <router-link to="/note/new">
-      <button id="new-note" class="btn btn-success fill-width">New Note</button>
+      <b-button id="new-note" variant="success" class="fill-width"
+        >New Note
+      </b-button>
     </router-link>
     <div id="note-list">
       <div class="list-group">
