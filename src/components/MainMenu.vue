@@ -50,9 +50,6 @@ export default {
   max-height: calc(100vh - 48px)
   overflow: auto
 
-.ma-0
-  margin: 0
-
 .fill-width
   width: 100%
 </style>

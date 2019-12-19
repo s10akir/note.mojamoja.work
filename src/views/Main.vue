@@ -2,12 +2,12 @@
   <div class="row content">
     <MainMenu
       id="menu-bar"
-      class="col-3 col-sm-3 col-md-2 pa-0"
+      class="col-3 col-sm-3 col-md-2 p-0"
       :notes="notes"
       :activeNote="activeNote"
       @selectNote="selectNote"
     />
-    <div class="col-9 col-sm-9 col-md-10 pa-0 vh-100">
+    <div class="col-9 col-sm-9 col-md-10 p-0 vh-100">
       <MarkdownPreview
         class="px-2"
         v-if="notes[searchIndex(activeNote)] != undefined"
@@ -95,16 +95,10 @@ export default {
   position: absolute
   bottom: 0
 
-.pa-0
-  padding: 0
-
 .content
   margin: 0px
 
 .preview
   height: calc(100vh - 48px)
   overflow-y: auto
-
-.pa-0
-  padding: 0
 </style>
