@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import activateOptions from "./EditorSetting/activateOptions";
 import themeOptions from "./EditorSetting/themeOptions.js";
 import keyMapOptions from "./EditorSetting/keyMapOptions.js";
 
@@ -34,16 +35,7 @@ export default {
   props: ["option"],
   data() {
     return {
-      activateOptions: [
-        {
-          value: true,
-          text: "active"
-        },
-        {
-          value: false,
-          text: "inactive"
-        }
-      ],
+      activateOptions,
       keyMapOptions,
       themeOptions
     };
