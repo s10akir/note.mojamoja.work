@@ -29,10 +29,6 @@ import { codemirror } from "vue-codemirror";
 import "codemirror/lib/codemirror.css";
 import "codemirror/mode/markdown/markdown";
 
-import "codemirror/keymap/vim";
-import "codemirror/keymap/emacs";
-import "codemirror/keymap/sublime";
-
 import Preview from "@/components/MarkdownPreview";
 import EditorSetting from "@/components/EditorSetting";
 

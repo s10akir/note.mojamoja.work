@@ -28,6 +28,7 @@
 
 <script>
 import themeOptions from "./EditorSetting/themeOptions.js";
+import keyMapOptions from "./EditorSetting/keyMapOptions.js";
 
 export default {
   props: ["option"],
@@ -43,24 +44,7 @@ export default {
           text: "inactive"
         }
       ],
-      keyMapOptions: [
-        {
-          value: "default",
-          text: "default"
-        },
-        {
-          value: "vim",
-          text: "vim"
-        },
-        {
-          value: "emacs",
-          text: "emacs"
-        },
-        {
-          value: "sublime",
-          text: "sublime"
-        }
-      ],
+      keyMapOptions,
       themeOptions
     };
   }
