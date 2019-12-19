@@ -85,7 +85,7 @@ export default {
 <style lang="sass" scoped>
 #menu-bar
   border-right: #ccc 1px solid
-  top: 0rem
+  top: 0
   height: 100vh
 
 #note-content
@@ -96,7 +96,7 @@ export default {
   bottom: 0
 
 .content
-  margin: 0px
+  margin: 0
 
 .preview
   height: calc(100vh - 48px)

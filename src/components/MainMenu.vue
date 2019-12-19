@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-link to="/note/new">
-      <b-button id="new-note" variant="success" class="fill-width"
+      <b-button id="new-note-btn" variant="success" class="fill-width"
         >New Note
       </b-button>
     </router-link>
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-#new-note
+#new-note-btn
   height: 48px
 
 #note-list
