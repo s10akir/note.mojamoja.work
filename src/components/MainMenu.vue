@@ -1,9 +1,9 @@
 <template>
   <div>
     <router-link to="/note/new">
-      <button>New Note</button>
+      <button id="new-note" class="btn btn-success fill-width">New Note</button>
     </router-link>
-    <div style="max-height: calc(100vh - 36px); overflow:auto">
+    <div id="note-list">
       <div class="list-group">
         <div
           v-for="note in this.notes"
@@ -41,6 +41,16 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+#new-note
+  height: 48px
+
+#note-list
+  max-height: calc(100vh - 48px)
+  overflow: auto
+
 .ma-0
   margin: 0
+
+.fill-width
+  width: 100%
 </style>
