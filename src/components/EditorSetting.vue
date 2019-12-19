@@ -22,7 +22,6 @@
         :options="themeOptions"
       />
     </b-form-group>
-    <p>{{ option }}</p>
   </div>
 </template>
 
