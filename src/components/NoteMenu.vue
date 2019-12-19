@@ -1,9 +1,9 @@
 <template>
   <div>
     <router-link :to="{ name: 'edit', params: { id: activeNote } }">
-      <button class="btn btn-primary">edit</button>
+      <b-button variant="primary">edit</b-button>
     </router-link>
-    <button class="btn btn-danger" @click="deleteNote">delete</button>
+    <b-button variant="danger" @click="deleteNote">delete</b-button>
   </div>
 </template>
 
