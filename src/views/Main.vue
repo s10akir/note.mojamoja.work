@@ -104,4 +104,7 @@ export default {
 .preview
   height: calc(100vh - 48px)
   overflow-y: auto
+
+.pa-0
+  padding: 0
 </style>
