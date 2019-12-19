@@ -101,7 +101,6 @@ export default {
     },
     cmOption: {
       handler() {
-        console.log(this.cmOption);
         localStorage.cmOption = JSON.stringify(this.cmOption);
       },
       deep: true
