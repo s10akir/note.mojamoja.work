@@ -1,20 +1,22 @@
 <template>
-  <div>
-    <div>
-      <div id="menu-bar" style="height: 100%">
-        <MainMenu :notes="notes" @selectNote="selectNote" />
-      </div>
-      <div>
-        <MarkdownPreview
-          class="preview px-2"
-          v-if="notes[searchIndex(activeNote)] != undefined"
-          :title="notes[searchIndex(activeNote)].title"
-          :content="notes[searchIndex(activeNote)].content"
-        />
-        <div>
-          <NoteMenu :activeNote="activeNote" @deleteNote="deleteNote" />
-        </div>
-      </div>
+  <div class="row content">
+    <MainMenu
+      id="menu-bar"
+      class="col-3 col-sm-3 col-md-2 p-0"
+      :notes="notes"
+      :activeNote="activeNote"
+      @selectNote="selectNote"
+    />
+    <div class="col-9 col-sm-9 col-md-10 p-0 vh-100">
+      <MarkdownPreview
+        class="px-2"
+        v-if="notes[searchIndex(activeNote)] != undefined"
+        :title="notes[searchIndex(activeNote)].title"
+        :content="notes[searchIndex(activeNote)].content"
+      />
+      <b-nav small id="note-controller">
+        <NoteMenu :activeNote="activeNote" @deleteNote="deleteNote" />
+      </b-nav>
     </div>
   </div>
 </template>
@@ -83,7 +85,20 @@ export default {
 <style lang="sass" scoped>
 #menu-bar
   border-right: #ccc 1px solid
+  top: 0
+  height: 100vh
+
+#note-content
+  max-height: 100vh
+
+#note-controller
+  position: absolute
+  bottom: 0
+
+.content
+  margin: 0
 
 .preview
+  height: calc(100vh - 48px)
   overflow-y: auto
 </style>
