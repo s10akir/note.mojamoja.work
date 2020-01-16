@@ -1,9 +1,9 @@
 <template>
   <div>
     <router-link :to="{ name: 'edit', params: { id: activeNote } }">
-      <b-button variant="primary">edit</b-button>
+      <b-button :disabled="menuButton" variant="primary">edit</b-button>
     </router-link>
-    <b-button :disabled="deleteButton" variant="danger" @click="deleteNote"
+    <b-button :disabled="menuButton" variant="danger" @click="deleteNote"
       >delete</b-button
     >
   </div>
@@ -20,11 +20,11 @@ export default {
     }
   },
   computed: {
-    deleteButton() {
-      if (!isNaN(this.activeNote)) {
-        return "true";
+    menuButton() {
+      if (this.activeNote == 0) {
+        return true;
       }
-      return "false";
+      return false;
     }
   }
 };
