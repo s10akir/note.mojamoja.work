@@ -21,11 +21,6 @@ export default new Router({
         import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
     {
-      path: "/note/new",
-      name: "new",
-      component: () => import("./views/New.vue")
-    },
-    {
       path: "/note/:id/edit",
       name: "edit",
       component: () => import("./views/Edit.vue")

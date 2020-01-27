@@ -1,10 +1,12 @@
 <template>
   <div>
-    <router-link to="/note/new">
-      <b-button id="new-note-btn" variant="success" class="fill-width"
-        >New Note
-      </b-button>
-    </router-link>
+    <b-button
+      id="new-note-btn"
+      variant="success"
+      class="fill-width"
+      @click="createNote"
+      >New Note
+    </b-button>
     <div id="note-list">
       <div class="list-group">
         <div
@@ -37,6 +39,27 @@ export default {
     },
     isActive(id) {
       return this.activeNote === id;
+    },
+    createNote() {
+      const db = this.$db;
+      const Note = db.getSchema().table("Note");
+
+      const now = new Date();
+      const row = Note.createRow({
+        title: String(now.toLocaleString("ja-JP", { timeTone: "JST" })),
+        content: "",
+        created_at: now,
+        updated_at: now
+      });
+
+      db.insert()
+        .into(Note)
+        .values([row])
+        .exec()
+        .then(res => {
+          const id = res[0].id;
+          this.$router.push({ name: "edit", params: { id } });
+        });
     }
   }
 };
