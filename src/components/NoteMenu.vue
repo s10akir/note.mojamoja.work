@@ -1,9 +1,11 @@
 <template>
   <div>
     <router-link :to="{ name: 'edit', params: { id: activeNote } }">
-      <b-button variant="primary">edit</b-button>
+      <b-button :disabled="menuButton" variant="primary">edit</b-button>
     </router-link>
-    <b-button variant="danger" @click="deleteNote">delete</b-button>
+    <b-button :disabled="menuButton" variant="danger" @click="deleteNote"
+      >delete</b-button
+    >
   </div>
 </template>
 
@@ -15,6 +17,14 @@ export default {
   methods: {
     deleteNote() {
       this.$emit("deleteNote", this.activeNote);
+    }
+  },
+  computed: {
+    menuButton() {
+      if (this.activeNote == 0) {
+        return true;
+      }
+      return false;
     }
   }
 };
